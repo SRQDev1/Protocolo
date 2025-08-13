@@ -3,9 +3,9 @@ Sistema de Protocolo Digital Homologação
 
 ## Estrutura de Pastas
 
-- `protocolo-digital/backend`
-- `protocolo-digital/frontend`
-- `protocolo-digital/scripts-banco-dados`
+- `backend`
+- `frontend`
+- `regras`
 
 ## Fase 1
 
