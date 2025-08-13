@@ -1,0 +1,17 @@
+
+<h2>Vincular Usuários a Setores</h2>
+<label>
+  Usuário
+  <select [(ngModel)]="usuarioId" name="usuario" (change)="carregarVinculos()">
+    <option *ngFor="let u of usuarios" [value]="u.id">{{u.nome}}</option>
+  </select>
+</label>
+<div>
+  <label *ngFor="let s of setores">
+    <input type="checkbox" [value]="s.id" [checked]="setoresSelecionados.includes(s.id)"
+      (change)="toggleSetor(s.id, $any($event.target).checked)">
+    {{s.nome}}
+  </label>
+</div>
+<button (click)="salvar()">Salvar</button>
+

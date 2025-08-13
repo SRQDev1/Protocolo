@@ -1,0 +1,8 @@
+USE master;
+GO
+
+ALTER DATABASE ProtocoloDigital SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO
+
+DROP DATABASE ProtocoloDigital;
+GO

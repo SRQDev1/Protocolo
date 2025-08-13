@@ -1,0 +1,20 @@
+<h2>Setores</h2>
+<ul>
+  <li *ngFor="let s of setores">
+    {{s.nome}} - {{s.descricao}}
+    <button (click)="editar(s)">Editar</button>
+    <button (click)="deletar(s.id)">Excluir</button>
+  </li>
+</ul>
+<form (ngSubmit)="salvar()">
+  <label>
+    Nome
+    <input [(ngModel)]="novo.nome" name="nome">
+  </label>
+  <label>
+    Descrição
+    <input [(ngModel)]="novo.descricao" name="desc">
+  </label>
+  <button type="submit">{{editandoId ? 'Atualizar' : 'Salvar'}}</button>
+  <button type="button" *ngIf="editandoId" (click)="cancelar()">Cancelar</button>
+</form>

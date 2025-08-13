@@ -1,0 +1,20 @@
+
+# Frontend-specific ignores
+/dist/
+/.angular/
+/node_modules/
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# Arquivos de build
+/aot/
+/coverage/
+
+# Assets não versionáveis
+/src/assets/*.png
+/src/assets/*.jpg
+/src/assets/*.jpeg
+/src/assets/*.gif

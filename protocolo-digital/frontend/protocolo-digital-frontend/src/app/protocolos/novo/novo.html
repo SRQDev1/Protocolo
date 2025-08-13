@@ -1,0 +1,60 @@
+<form (ngSubmit)="salvar()" fxLayout="column" fxLayoutGap="16px">
+  <app-form-title title="Novo Protocolo" description="Preencha os campos obrigatórios."></app-form-title>
+
+  <mat-card>
+    <div fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column">
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Setor de Origem</mat-label>
+        <mat-select [(ngModel)]="dados.setorOrigemId" name="setor" (selectionChange)="carregarTipos()">
+          <mat-option *ngFor="let s of setores" [value]="s.id">{{s.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Tipo de Protocolo</mat-label>
+        <mat-select [(ngModel)]="dados.tipoProtocoloId" name="tipo" (selectionChange)="atualizarAnexos()">
+          <mat-option *ngFor="let t of tipos" [value]="t.id">{{t.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="anexos.length">
+      <p>Anexos obrigatórios:</p>
+      <ul>
+        <li *ngFor="let a of anexos">{{a}}</li>
+      </ul>
+      <app-upload (filesChange)="arquivosSelecionados($event)"></app-upload>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column">
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Descrição</mat-label>
+        <input matInput [(ngModel)]="dados.descricao" name="descricao" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Valor</mat-label>
+        <input matInput type="number" step="0.01" [(ngModel)]="dados.valorTotal" name="valor">
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="16px" fxLayout.xs="column">
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Parcelas</mat-label>
+        <input matInput type="number" min="1" [(ngModel)]="quantidadeParcelas" name="qtd">
+      </mat-form-field>
+      <mat-form-field appearance="fill" fxFlex>
+        <mat-label>Primeiro Vencimento</mat-label>
+        <input matInput type="date" [(ngModel)]="primeiroVencimento" name="venc">
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="8px">
+      <button mat-raised-button color="primary" type="submit" [disabled]="loading">
+        <mat-icon>send</mat-icon>
+        Enviar
+      </button>
+    </div>
+  </mat-card>
+</form>

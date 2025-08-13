@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+}
+
+nav.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu a {
+  white-space: nowrap;
+  margin: 0 12px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.menu a:first-child {
+  margin-left: 0;
+}
+
+.menu a.active {
+  font-weight: bold;
+}
+
+.usuario-email {
+  white-space: nowrap;
+  margin-left: 16px;
+  font-weight: 500;
+}

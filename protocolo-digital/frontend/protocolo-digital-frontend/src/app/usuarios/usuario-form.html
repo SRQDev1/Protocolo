@@ -1,0 +1,55 @@
+<form (ngSubmit)="salvar()" fxLayout="column" fxLayoutGap="16px">
+  <app-form-title title="Novo Usuário"></app-form-title>
+  <mat-card>
+    <div fxLayout="column" fxLayoutGap="16px">
+      <mat-form-field appearance="fill">
+        <mat-label>Nome completo</mat-label>
+        <input matInput [(ngModel)]="form.nome" name="nome" required minlength="3">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input matInput type="email" [(ngModel)]="form.email" name="email" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" [(ngModel)]="form.senha" name="senha" required minlength="6">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Confirmação da Senha</mat-label>
+        <input matInput type="password" [(ngModel)]="form.confirmar" name="confirmar" required>
+      </mat-form-field>
+
+      <mat-slide-toggle [(ngModel)]="form.ativo" name="ativo">Ativo</mat-slide-toggle>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Perfil</mat-label>
+        <mat-select [(ngModel)]="form.perfil" name="perfil" required>
+          <mat-option value="Registrador">Registrador</mat-option>
+          <mat-option value="Aprovador">Aprovador</mat-option>
+          <mat-option value="Administrador">Administrador</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Setor vinculado</mat-label>
+        <mat-select [(ngModel)]="form.setorId" name="setorId">
+          <mat-option *ngFor="let s of setores" [value]="s.id">{{s.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="8px">
+        <button mat-stroked-button type="button" (click)="cancelar()">
+          <mat-icon>close</mat-icon>
+          Cancelar
+        </button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="loading">
+          <mat-icon>save</mat-icon>
+          Salvar
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</form>

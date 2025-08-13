@@ -1,0 +1,24 @@
+<h2>Tipos de Protocolo</h2>
+<ul>
+  <li *ngFor="let t of tipos">
+    {{t.nome}}
+    <button (click)="editar(t)">Editar</button>
+    <button (click)="deletar(t.id)">Excluir</button>
+  </li>
+</ul>
+<form (ngSubmit)="salvar()">
+  <label>
+    Nome
+    <input [(ngModel)]="novo.nome" name="nome">
+  </label>
+  <label>
+    Anexos Obrigatórios (JSON)
+    <input [(ngModel)]="novo.anexosObrigatorios" name="anexos">
+  </label>
+  <label>
+    <input type="checkbox" [(ngModel)]="novo.todosSetores" name="todos">
+    Disponível para todos os setores
+  </label>
+  <button type="submit">{{editandoId ? 'Atualizar' : 'Salvar'}}</button>
+  <button type="button" *ngIf="editandoId" (click)="cancelar()">Cancelar</button>
+</form>
