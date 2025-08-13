@@ -24,13 +24,13 @@ Sistema de Protocolo Digital Homologação
     ```
 
 3. **Frontend**
-   - Instale as dependências e execute a aplicação Angular:
+   - Instale as dependências e execute a aplicação Vue:
 
      ```bash
-     cd protocolo-digital/frontend/protocolo-digital-frontend
+     cd protocolo-digital/frontend
      npm install
-    npm start
-    ```
+     npm run dev
+     ```
    - A criação de protocolos requer que o usuário esteja autenticado. Utilize a tela `Login` para entrar antes de tentar abrir um novo protocolo.
 
 ## Fase 4
